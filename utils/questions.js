@@ -83,9 +83,9 @@ new Question(
  new Question(
   'lincense type',
   'licenseType',
-  'editor',
+  'input',
   null,
-  'frog,turtle,man',
+  'frog turtle man',
 );
 
 
@@ -96,6 +96,7 @@ new Question(
   'input',
   null,
   "none",
+);
 
   new Question(
     'changes you would make in the future',
@@ -103,7 +104,14 @@ new Question(
     'input',
     null,
     "none",
-  )
-);
+  );
+  new Question(
+    'modules,apis, any other extensions (leave only a space between each object, no commas',
+    'mods',
+    'input',
+    null,
+    "axios turtrldoves",
+  );
+
 
 module.exports = questions;

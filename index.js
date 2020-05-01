@@ -9,21 +9,23 @@ gitInfo=""
 async function init() {
      answers = await inquirer.prompt(questions); 
      
-     console.log(answers.licenseType);
-    //  gitInfo = await axios.get(`https://api.github.com/users/${answers.userName}`);
-    //  layout= createMD(answers)
-    //  console.log(layout)
-    //  writeToFile();
+     convertToArray();
+     console.log(modBadge)
+     gitInfo = await axios.get(`https://api.github.com/users/${answers.userName}`);
+     layout= createMD(answers)
+     console.log(layout)
+     writeToFile();
 
 }
 
 function createMD() {
-    return  `<center> <h1>${answers.projectName}</h1> </center>
-    <img src= ${answers.image} >
-  
+    return  `# ${answers.projectName}
+  ${lincenseBadge} ${modBadge}
+    
+  <img src= ${answers.image}></img>
   
   ## Table of Contents
-
+  ${answers.purpose}
   
   ## Purpose of Application
   ${answers.purpose}
@@ -38,8 +40,7 @@ function createMD() {
   ${answers.installation}
   
   ## License
-  ${'Licensed under the ' + (answers.licenseType)}
-  
+  ${lincenseBadge}
   ## Contributions
   ${answers.credits}
   
@@ -52,7 +53,17 @@ function createMD() {
 
   `}
   
-
+  modBadge=""
+  lincenseBadge=""
+  function convertToArray(){
+     x= answers.licenseType.split(" ")
+     y = answers.mods.split(" ")
+      for (i=0;i<=x.length-1;i++){
+          lincenseBadge += '![License](https://img.shields.io/badge/License-'+x[i]+'-blue.svg) '}
+          for (i=0;i<=y.length-1;i++){
+          modBadge += '=='+y[i]+'== '}
+      }
+  
 
 
 
