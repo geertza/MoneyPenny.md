@@ -23,7 +23,13 @@ new Question(
   null,
   'geertza',
 );
-
+new Question(
+ 'Image location',
+ 'image',
+ 'input',
+ null,
+ './images/test.jpg',
+)
 new Question(
   'Project Name?',
   'projectName',
@@ -43,7 +49,7 @@ new Question(
   'projectDescription',
   'input',
   null,
-  'answer questions and get readme written out for you',
+  
 );
 
 new Question(
@@ -51,15 +57,11 @@ new Question(
   'installation',
   'input',
   null,
-  "inti npm and install modules",
+ `* first line
+  * second
+  * `,
 );
-new Question(
-  'Required module / add ons?',
-  'modules',
-  'input',
-  null,
-  'until,fx,begger',
-);
+
 
 
 new Question(
@@ -81,9 +83,9 @@ new Question(
  new Question(
   'lincense type',
   'licenseType',
-  'input',
+  'editor',
   null,
-  'freebase',
+  'frog,turtle,man',
 );
 
 
@@ -96,7 +98,7 @@ new Question(
   "none",
 
   new Question(
-    'chnages you would make in the future',
+    'changes you would make in the future',
     'future',
     'input',
     null,

@@ -1,22 +1,25 @@
 const fs=require("fs") 
 inquirer = require('inquirer');
-// layoutMD = require('./utility/layoutMD')
+  axios = require('axios').default;
  questions = require('./utils/questions');
- MarkdownIt = require('markdown-it')
- md = new MarkdownIt();
- result = md.render('./results/readme.md');
 answers =""
 layout= ""
+gitInfo=""
+
 async function init() {
-     answers = await inquirer.prompt(questions);
-     layout= createMD(answers)
-     console.log(layout)
-     writeToFile();
+     answers = await inquirer.prompt(questions); 
+     
+     console.log(answers.licenseType);
+    //  gitInfo = await axios.get(`https://api.github.com/users/${answers.userName}`);
+    //  layout= createMD(answers)
+    //  console.log(layout)
+    //  writeToFile();
 
 }
 
 function createMD() {
-    return  `# ${answers.projectName}
+    return  `<center> <h1>${answers.projectName}</h1> </center>
+    <img src= ${answers.image} >
   
   
   ## Table of Contents
@@ -28,7 +31,7 @@ function createMD() {
   ## Description 
   ${answers.projectDescription}
   
-  ##Required downloads/modules/Apis etc..
+  ## Required downloads/modules/Apis etc..
   ${answers.modules}
   
   ## Installation
@@ -45,6 +48,8 @@ function createMD() {
   
   ##Future developement
   ${answers.future}
+  ![profile image](${gitInfo.data.avatar_url})
+
   `}
   
 
